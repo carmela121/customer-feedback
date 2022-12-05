@@ -11,9 +11,11 @@ import {
   Box,
   TextField,
   Grid,
+
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import moment from "moment";
+import { WidthFull } from "@mui/icons-material";
 
 export const ReviewList = () => {
   const [reviews, setReviews] = useState(data);
@@ -48,13 +50,17 @@ export const ReviewList = () => {
     setShowReviews(true);
   };
 
-  const reviewFive = reviews.filter(item => Math.floor(item.stars) === 5)
-  const reviewFour = reviews.filter(item => Math.floor(item.stars) === 4)
-  const reviewThree = reviews.filter(item => Math.floor(item.stars) === 3)
-  const reviewTwo = reviews.filter(item => Math.floor(item.stars) === 2)
-  const reviewOne = reviews.filter(item => Math.floor(item.stars) === 1)
+  const reviewFive = reviews.filter((item) => Math.floor(item.stars) === 5);
+  const reviewFour = reviews.filter((item) => Math.floor(item.stars) === 4);
+  const reviewThree = reviews.filter((item) => Math.floor(item.stars) === 3);
+  const reviewTwo = reviews.filter((item) => Math.floor(item.stars) === 2);
+  const reviewOne = reviews.filter((item) => Math.floor(item.stars) === 1);
 
-  console.log(reviews)
+  const reviewAverage = () => {
+    const reviewStar = reviews.map((item) => Math.floor(item.stars));
+    const sum = reviewStar.reduce((a, b) => a + b, 0);
+    return sum / reviews.length;
+  };
 
   return (
     <Container maxWidth="sm">
@@ -141,7 +147,6 @@ export const ReviewList = () => {
             marginTop: 8,
           }}
         >
-              
           <Button
             endIcon={<SendIcon />}
             sx={{
@@ -151,18 +156,63 @@ export const ReviewList = () => {
           >
             Back to feedback
           </Button>
-          <Card sx={{ maxWidth: 200, margin:2 }}>
-          <Rating name="read-only" value={5} readOnly />{`${reviewFive.length} reviews`}
-             <Rating name="read-only" value={4} readOnly />{`${reviewFour.length} reviews`}
-             <Rating name="read-only" value={3} readOnly />{`${reviewThree.length} reviews`}
-             <Rating name="read-only" value={2} readOnly />{`${reviewTwo.length} reviews`}
-            <Rating name="read-only" value={1} readOnly />{`${reviewOne.length} reviews`}
-          </Card>
-         
+
+          <Box
+            sx={{
+              width: 200,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Rating
+              name="half-rating"
+              value={reviewAverage()}
+              precision={0.5}
+              readOnly
+            />
+            <Box
+              sx={{ ml: 2, width: "100%", padding: 2, minWidth: "200px" }}
+            >{`${reviewAverage()} out of 5`}</Box>
+            {/* 5 star{" "}
+            <LinearProgress
+              sx={{ height: "12px" }}
+              color={"warning"}
+              variant="determinate"
+              value={reviewFive.length}
+            />
+            4 star{" "}
+            <LinearProgress
+              sx={{ height: "12px" }}
+              color={"warning"}
+              variant="determinate"
+              value={reviewFour.length}
+            />
+            3 star{" "}
+            <LinearProgress
+              sx={{ height: "12px" }}
+              color={"warning"}
+              variant="determinate"
+              value={reviewThree.length}
+            />
+            2 star{" "}
+            <LinearProgress
+              sx={{ height: "12px" }}
+              color={"warning"}
+              variant="determinate"
+              value={reviewTwo.length}
+            />
+            1 star{" "}
+            <LinearProgress
+              sx={{ height: "12px" }}
+              color={"warning"}
+              variant="determinate"
+              value={reviewOne.length}
+            /> */}
+          </Box>
+
           {reviews &&
             sortedReviews(reviews).map((review) => (
-              <Card sx={{ maxWidth: 600 }}>
-                
+              <Card sx={{ maxWidth: 600, padding: 2 }}>
                 <CardActionArea>
                   <Rating name="read-only" value={review.stars} readOnly />
                   <CardContent>
