@@ -10,7 +10,6 @@ export const NavbarComponent = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Customer Reviews
           </Typography>
-          <Link to="/"><Typography component="div" color={"white"} variant="body1">Add Review</Typography></Link>
         </Toolbar>
       </AppBar>
     </Box>

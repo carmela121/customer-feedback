@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Reviews } from "./reviews/Reviews";
 import { FormComponent } from "./reviews/ReviewForm";
 import {ReviewList} from "./reviews/ReviewList"
-import { NavbarComponent } from "./NavBar";
+import { NavbarComponent } from "./components/NavBar";
 import "./styles.css";
 import "./App.css";
 export default function App() {
