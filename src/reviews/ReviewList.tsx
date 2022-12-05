@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { data, sortedReviews } from "../data";
+import { StarRatingsChart } from "../components/StarChart";
 import {
   Button,
   CardActionArea,
@@ -11,7 +12,6 @@ import {
   Box,
   TextField,
   Grid,
-
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import moment from "moment";
@@ -159,55 +159,27 @@ export const ReviewList = () => {
 
           <Box
             sx={{
-              width: 200,
-              display: "flex",
-              alignItems: "center",
+              ml: 2,
+              marginBottom: 5,
+              width: "100%",
+              padding: 2,
+              minWidth: "200px",
             }}
           >
-            <Rating
-              name="half-rating"
-              value={reviewAverage()}
-              precision={0.5}
-              readOnly
+            <StarRatingsChart
+              starCounts={{
+                Total: [
+                  reviewOne.length,
+                  reviewTwo.length,
+                  reviewThree.length,
+                  reviewFour.length,
+
+                  reviewFive.length,
+                ],
+              }}
+              width={500}
+              height={200}
             />
-            <Box
-              sx={{ ml: 2, width: "100%", padding: 2, minWidth: "200px" }}
-            >{`${reviewAverage()} out of 5`}</Box>
-            {/* 5 star{" "}
-            <LinearProgress
-              sx={{ height: "12px" }}
-              color={"warning"}
-              variant="determinate"
-              value={reviewFive.length}
-            />
-            4 star{" "}
-            <LinearProgress
-              sx={{ height: "12px" }}
-              color={"warning"}
-              variant="determinate"
-              value={reviewFour.length}
-            />
-            3 star{" "}
-            <LinearProgress
-              sx={{ height: "12px" }}
-              color={"warning"}
-              variant="determinate"
-              value={reviewThree.length}
-            />
-            2 star{" "}
-            <LinearProgress
-              sx={{ height: "12px" }}
-              color={"warning"}
-              variant="determinate"
-              value={reviewTwo.length}
-            />
-            1 star{" "}
-            <LinearProgress
-              sx={{ height: "12px" }}
-              color={"warning"}
-              variant="determinate"
-              value={reviewOne.length}
-            /> */}
           </Box>
 
           {reviews &&
