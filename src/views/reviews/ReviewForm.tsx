@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, Rating, Button, Box, Container } from "@mui/material";
-import { data } from "../data";
+import { data } from "../../data";
 
 export const FormComponent = () => {
    

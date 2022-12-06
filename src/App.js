@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { Reviews } from "./reviews/Reviews";
-import { FormComponent } from "./reviews/ReviewForm";
-import {ReviewList} from "./reviews/ReviewList"
+import { Reviews } from "./views/reviews/Reviews";
+import { FormComponent } from "./views/reviews/ReviewForm";
+import {ReviewList} from "./views/reviews/ReviewList"
 import { NavbarComponent } from "./components/NavBar";
 import "./styles.css";
 import "./App.css";

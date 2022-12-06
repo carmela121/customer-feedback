@@ -1,4 +1,4 @@
-import { List } from "./reviews/Reviews";
+import { List } from "./views/reviews/Reviews";
 export const data = [
   {
     comment:

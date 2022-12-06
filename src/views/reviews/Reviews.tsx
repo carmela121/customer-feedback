@@ -8,7 +8,7 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import { data, sortedReviews } from "../data";
+import { data, sortedReviews } from "../../data";
 import moment from "moment";
 export interface List {
   comment: string;

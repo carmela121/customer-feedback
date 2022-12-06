@@ -9,7 +9,7 @@ import {
 
 Chart.register(BarElement, Tooltip, LinearScale, CategoryScale);
 
-export const StarRatingsChart = ({ starCounts, width = 250, height = 350 }) => {
+export const StarRatingsChart = ({ starCounts, width, height }) => {
   const options = {
     indexAxis: "y",
     elements: {
@@ -97,10 +97,10 @@ export const StarRatingsChart = ({ starCounts, width = 250, height = 350 }) => {
           <tr>
             {ratings.map((r) => (
               <td key={r.label}>
-                <h1>
+                <h2>
                   {r.rating}
                   <small> ({r.count})</small>
-                </h1>
+                </h2>
                 <p>{r.label}</p>
               </td>
             ))}
@@ -110,7 +110,7 @@ export const StarRatingsChart = ({ starCounts, width = 250, height = 350 }) => {
       <Bar
         options={options}
         data={data}
-        width={width - 10}
+        width={width - 50}
         height={height - 50}
       />
     </div>

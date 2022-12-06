@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { data, sortedReviews } from "../data";
-import { StarRatingsChart } from "../components/StarChart";
+import { data, sortedReviews } from "../../data";
+import { StarRatingsChart } from "../../components/StarChart";
 import {
   Button,
   CardActionArea,
@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import moment from "moment";
-import { WidthFull } from "@mui/icons-material";
 
 export const ReviewList = () => {
   const [reviews, setReviews] = useState(data);
@@ -55,12 +54,6 @@ export const ReviewList = () => {
   const reviewThree = reviews.filter((item) => Math.floor(item.stars) === 3);
   const reviewTwo = reviews.filter((item) => Math.floor(item.stars) === 2);
   const reviewOne = reviews.filter((item) => Math.floor(item.stars) === 1);
-
-  const reviewAverage = () => {
-    const reviewStar = reviews.map((item) => Math.floor(item.stars));
-    const sum = reviewStar.reduce((a, b) => a + b, 0);
-    return sum / reviews.length;
-  };
 
   return (
     <Container maxWidth="sm">
@@ -173,7 +166,6 @@ export const ReviewList = () => {
                   reviewTwo.length,
                   reviewThree.length,
                   reviewFour.length,
-
                   reviewFive.length,
                 ],
               }}
