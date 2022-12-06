@@ -1,4 +1,11 @@
-import { List } from "./views/reviews/Reviews";
+
+interface List {
+  comment: string;
+  name: string;
+  stars: number;
+  timeStamp: number;
+  email: string;
+}
 export const data = [
   {
     comment:
